@@ -2,13 +2,21 @@ import React from 'react';
 import styles from './Content.css';
 import * as calc from './calcFunctionality';
 
-class Calc extends React.Component {
+// class Calc extends React.Component {
+const Calc = React.createClass({
+
+  getInitialState() {
+    return {
+      result: "Do some Calculatin'!"
+    };
+  },
 
   onClick(e) {
     e.preventDefault();
     calc.queueStuff(e.target.innerHTML);
     console.log(`${e.target.innerHTML}`);
-  }
+  },
+
   evaluate(e) {
     e.preventDefault();
     const result = calc.evaluate();
@@ -44,10 +52,15 @@ class Calc extends React.Component {
           <div className="button operation" onClick={this.onClick}> / </div>
           <div className="button operation" onClick={this.evaluate}> = </div>
         </div>
+        <div className="row">
+          <div className="result">
+            <h3>{this.state.result}</h3>
+          </div>
+        </div>
       </div>
     );
   }
-}
+})
 
 
 
