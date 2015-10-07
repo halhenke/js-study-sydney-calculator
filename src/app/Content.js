@@ -6,8 +6,15 @@ class Calc extends React.Component {
 
   onClick(e) {
     e.preventDefault();
+    calc.queueStuff(e.target.innerHTML);
     console.log(`${e.target.innerHTML}`);
   }
+  evaluate(e) {
+    e.preventDefault();
+    const result = calc.evaluate();
+    console.log(`${result}`);
+    this.setState({result: result});
+  },
 
   render () {
     return (
@@ -35,7 +42,7 @@ class Calc extends React.Component {
         <div className="row">
           <div className="button operation" onClick={this.onClick}> * </div>
           <div className="button operation" onClick={this.onClick}> / </div>
-          <div className="button operation" onClick={this.onClick}> = </div>
+          <div className="button operation" onClick={this.evaluate}> = </div>
         </div>
       </div>
     );
