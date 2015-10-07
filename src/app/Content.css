@@ -1,3 +1,22 @@
 .content {
   padding: 2rem 1rem;
 }
+
+.calc {
+  padding: 2rem;
+}
+
+.calc :global .row {
+  clear: both;
+}
+.calc :global .button {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  background-color: grey;
+  float: left;
+}
+
+.calc :global .button.operation {
+  background-color: cornsilk;
+}
